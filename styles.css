@@ -1,0 +1,622 @@
+const header = document.querySelector('.site-header');
+const menuToggle = document.querySelector('.menu-toggle');
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = header.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+}
+
+const navLinks = document.querySelectorAll('.main-nav a');
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    header.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+  });
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+reveals.forEach((el) => observer.observe(el));
+
+window.addEventListener('load', () => {
+  document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+});
+
+if (window.matchMedia('(max-width: 760px)').matches) {
+  header.classList.remove('open');
+}
+
+window.addEventListener('resize', () => {
+  if (!window.matchMedia('(max-width: 760px)').matches) {
+    header.classList.remove('open');
+  }
+});
+
+const currentYear = new Date().getFullYear();
+const footerText = document.querySelector('.site-footer p');
+if (footerText) {
+  footerText.textContent = `© ${currentYear} BTNS — Beyond the Net Services`;
+}
+
+const floating = document.getElementById('floating-whatsapp');
+if (floating) {
+  floating.setAttribute('aria-label', 'Chat on WhatsApp');
+}
+
+const heroCopy = document.querySelector('.hero-copy');
+if (heroCopy) {
+  heroCopy.classList.add('visible');
+}
+
+const heroVisual = document.querySelector('.hero-visual');
+if (heroVisual) {
+  heroVisual.classList.add('visible');
+}
+
+const visibleInitials = document.querySelectorAll('.reveal');
+visibleInitials.forEach((el) => {
+  if (el.classList.contains('hero-copy') || el.classList.contains('hero-visual')) {
+    el.classList.add('visible');
+  }
+});
+
+const body = document.body;
+body.classList.add('ready');
+
+if (window.jQuery) {
+  $(document).ready(function () {
+    $('#floating-whatsapp').floatingWhatsApp({
+      phone: '+27765510575',
+      message: 'Hello! I would like to get in touch with you.',
+      position: 'right'
+    });
+  });
+}
+
+const contactLink = document.querySelector('.contact-meta a[href="mailto:hello@btns.co.za"]');
+if (contactLink) {
+  contactLink.setAttribute('title', 'Email BTNS');
+}
+
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+anchorLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const targetId = link.getAttribute('href');
+    if (!targetId || targetId === '#') return;
+    const target = document.querySelector(targetId);
+    if (target) {
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+setTimeout(() => {
+  document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+}, 100);
+
+console.log('BTNS site ready');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+after
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"}]},
